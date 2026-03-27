@@ -1,0 +1,524 @@
+{
+  "metadata": {
+    "visual": {
+      "presentation": {
+        "themes": {
+          "34061c5f-2f51-4562-b850-c4c71fd74651": {
+            "template": "basic",
+            "templateAdditionalOptions": {},
+            "palette": {
+              "primary": {
+                "0": "#000000",
+                "5": "#101200",
+                "10": "#1a1e00",
+                "15": "#242800",
+                "20": "#2e3300",
+                "25": "#393f00",
+                "30": "#444b00",
+                "35": "#4f5700",
+                "40": "#5b6400",
+                "50": "#737d11",
+                "60": "#8d982d",
+                "70": "#a7b345",
+                "80": "#c2ce5e",
+                "90": "#dfeb77",
+                "95": "#edf983",
+                "98": "#f8ffb6",
+                "99": "#fdffd8",
+                "100": "#ffffff"
+              },
+              "secondary": {
+                "0": "#000000",
+                "5": "#101201",
+                "10": "#1b1d07",
+                "15": "#252710",
+                "20": "#30321a",
+                "25": "#3b3d24",
+                "30": "#46492e",
+                "35": "#525439",
+                "40": "#5e6044",
+                "50": "#77795b",
+                "60": "#919373",
+                "70": "#acae8d",
+                "80": "#c7c9a6",
+                "90": "#e3e5c1",
+                "95": "#f2f3cf",
+                "98": "#fafcd7",
+                "99": "#fdffda",
+                "100": "#ffffff"
+              },
+              "tertiary": "",
+              "error": {
+                "0": "#000000",
+                "5": "#2d0001",
+                "10": "#410002",
+                "15": "#540003",
+                "20": "#690005",
+                "25": "#7e0007",
+                "30": "#93000a",
+                "35": "#a80710",
+                "40": "#ba1a1a",
+                "50": "#de3730",
+                "60": "#ff5449",
+                "70": "#ff897d",
+                "80": "#ffb4ab",
+                "90": "#ffdad6",
+                "95": "#ffedea",
+                "98": "#fff8f7",
+                "99": "#fffbff",
+                "100": "#ffffff"
+              },
+              "neutral": {
+                "0": "#000000",
+                "5": "#11110d",
+                "10": "#1c1c17",
+                "15": "#262621",
+                "20": "#31312b",
+                "25": "#3c3c36",
+                "30": "#474741",
+                "35": "#53534c",
+                "40": "#5f5f58",
+                "50": "#787770",
+                "60": "#929189",
+                "70": "#adaba3",
+                "80": "#c9c6be",
+                "90": "#e5e2da",
+                "95": "#f3f1e8",
+                "98": "#fcf9f0",
+                "99": "#fdffd8",
+                "100": "#ffffff"
+              },
+              "neutralVariant": {
+                "0": "#000000",
+                "5": "#111208",
+                "10": "#1b1c12",
+                "15": "#26271b",
+                "20": "#303126",
+                "25": "#3c3c30",
+                "30": "#47483b",
+                "35": "#535346",
+                "40": "#5f5f52",
+                "50": "#78786a",
+                "60": "#929282",
+                "70": "#adac9c",
+                "80": "#c8c7b7",
+                "90": "#e4e3d2",
+                "95": "#f3f1e0",
+                "98": "#fcfae8",
+                "99": "#fffdeb",
+                "100": "#ffffff"
+              }
+            },
+            "themeColors": {
+              "primaryColor": "",
+              "secondaryColor": "",
+              "backgroundColor": "",
+              "primaryTextColor": "",
+              "textColor": ""
+            },
+            "splashScreen": {
+              "storedData": {
+                "handle": "drive:/1HQbJT4XbbY2QS3nMTsXVpsnaRur01rE7",
+                "mimeType": "image/png",
+                "contentLength": 1538204
+              }
+            }
+          }
+        },
+        "theme": "34061c5f-2f51-4562-b850-c4c71fd74651"
+      }
+    },
+    "intent": "I want to make an app to schedule lunch pick up for departmental talks ",
+    "revision_intents": [],
+    "raw_intent": "I want to make an app to schedule lunch pick up for departmental talks ",
+    "parameters": {}
+  },
+  "title": "HSPH Meeting Food Generator",
+  "description": "Effortlessly schedule departmental talk lunch pickups, ensuring timely meals for all.",
+  "version": "0.0.1",
+  "nodes": [
+    {
+      "id": "ask_user_event_name",
+      "metadata": {
+        "title": "Meeting Name",
+        "visual": {
+          "x": 250,
+          "y": 300,
+          "collapsed": "expanded",
+          "outputHeight": 88
+        },
+        "userModified": true,
+        "expected_output": [
+          {
+            "list": false,
+            "description": "User-provided text string for the meeting name",
+            "type": "text"
+          }
+        ]
+      },
+      "type": "embed://a2/a2.bgl.json#21ee02e7-83fa-49d0-964c-0cab10eafc2c",
+      "configuration": {
+        "description": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Enter the name of the meeting"
+            }
+          ]
+        },
+        "p-modality": "Any",
+        "p-required": false
+      }
+    },
+    {
+      "id": "ask_user_talk_date",
+      "metadata": {
+        "title": "Talk Date",
+        "visual": {
+          "x": 250,
+          "y": 450,
+          "collapsed": "expanded",
+          "outputHeight": 88
+        }
+      },
+      "type": "embed://a2/a2.bgl.json#21ee02e7-83fa-49d0-964c-0cab10eafc2c",
+      "configuration": {
+        "description": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Specify the meeting date(s) "
+            }
+          ]
+        },
+        "p-modality": "Any",
+        "p-required": false
+      }
+    },
+    {
+      "id": "ask_user_pickup_time",
+      "metadata": {
+        "title": "Pickup Time",
+        "visual": {
+          "x": 260,
+          "y": 600,
+          "collapsed": "expanded",
+          "outputHeight": 88
+        }
+      },
+      "type": "embed://a2/a2.bgl.json#21ee02e7-83fa-49d0-964c-0cab10eafc2c",
+      "configuration": {
+        "description": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Indicate desired food pickup time"
+            }
+          ]
+        },
+        "p-modality": "Any",
+        "p-required": false
+      }
+    },
+    {
+      "id": "ask_user_attendee_count",
+      "metadata": {
+        "title": "Attendee Count",
+        "visual": {
+          "x": 260,
+          "y": 740,
+          "collapsed": "expanded",
+          "outputHeight": 88
+        }
+      },
+      "type": "embed://a2/a2.bgl.json#21ee02e7-83fa-49d0-964c-0cab10eafc2c",
+      "configuration": {
+        "description": {
+          "parts": [
+            {
+              "text": "Provide the estimated number of attendees."
+            }
+          ],
+          "role": "user"
+        },
+        "p-modality": "Any"
+      }
+    },
+    {
+      "id": "047e7cca-b165-4a5e-9421-74241d26ce70",
+      "type": "embed://a2/generate.bgl.json#module:main",
+      "metadata": {
+        "title": "Generate Food Order",
+        "visual": {
+          "x": 800,
+          "y": 440
+        },
+        "userModified": true,
+        "expected_output": [
+          {
+            "description": "Generated text of a food order with pickup details",
+            "type": "text",
+            "list": false
+          }
+        ]
+      },
+      "configuration": {
+        "config$prompt": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "I want to a organize a system of food orders from restaurants within a 10 minute walk of the Harvard T.H. Chan School of Public Health (677 Huntington Avenue, Boston, MA 02115). \n\nThe app should find a restaurant for the relevant {{\"type\":\"in\",\"path\":\"1eb15dfa-508d-46f3-95f3-6dd21427a13f\",\"title\":\"Meal type\"}}. If there are multiple dates in {{\"type\":\"in\",\"path\":\"ask_user_talk_date\",\"title\":\"Talk Date\"}}, I want each date to have food from a different restaurant (ideally with different genres of food) so it doesn't get repetitive. Find ones with good ratings; if it has less than a 3 rating in google reviews it shouldn't be included. \n\nThe app should find a restaurant in the area and generate an order based on the menu that will serve the number of people that is specified by {{\"type\":\"in\",\"path\":\"ask_user_attendee_count\",\"title\":\"Attendee Count\"}}. The order total with 20% tip should not exceed the budget cost by {{\"type\":\"in\",\"path\":\"83d98265-aebc-43be-809c-158c5d015d6c\",\"title\":\"Per person budget\"}}for each attendee. The order should be detailed. For example, don't just say \"variety of pizzas\", find a specific set of pizzas that have variety. \n\nOutput the menu information for each meeting (including each item with the cost and quantity), along with the information for the person responsible for ordering the food for that meeting with is done in. The URLs should be live and active. \n"
+            }
+          ]
+        },
+        "generation-mode": "agent"
+      }
+    },
+    {
+      "id": "83d98265-aebc-43be-809c-158c5d015d6c",
+      "type": "embed://a2/a2.bgl.json#21ee02e7-83fa-49d0-964c-0cab10eafc2c",
+      "metadata": {
+        "title": "Per person budget",
+        "visual": {
+          "x": 240,
+          "y": 1100
+        },
+        "userModified": true
+      },
+      "configuration": {
+        "description": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "What is the price per person you're willing to spend? (Default is $10 pp for lunch/dinner, $5 pp for breakfast)"
+            }
+          ]
+        },
+        "p-modality": "Any",
+        "p-required": false
+      }
+    },
+    {
+      "id": "abeebeb8-2f7c-40b0-b7b9-0775e9537812",
+      "type": "embed://a2/a2.bgl.json#21ee02e7-83fa-49d0-964c-0cab10eafc2c",
+      "metadata": {
+        "title": "Pickup people",
+        "visual": {
+          "x": 240,
+          "y": 1320
+        },
+        "userModified": true
+      },
+      "configuration": {
+        "description": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "What is the email address of the person responsible for picking up this order (or enter multiple email addresses if the responsibility should be rotated)"
+            }
+          ]
+        },
+        "p-modality": "Any",
+        "p-required": false
+      }
+    },
+    {
+      "id": "1eb15dfa-508d-46f3-95f3-6dd21427a13f",
+      "type": "embed://a2/a2.bgl.json#21ee02e7-83fa-49d0-964c-0cab10eafc2c",
+      "metadata": {
+        "title": "Meal type",
+        "visual": {
+          "x": 260,
+          "y": 900
+        },
+        "userModified": true
+      },
+      "configuration": {
+        "description": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "What meal are you looking for? (i.e., breakfast, lunch, dinner, breakfast without coffee)"
+            }
+          ]
+        },
+        "p-modality": "Any",
+        "p-required": false
+      }
+    },
+    {
+      "id": "acb0ddb0-473e-42b1-88db-3bca307b6b3e",
+      "type": "embed://a2/generate.bgl.json#module:main",
+      "metadata": {
+        "title": "Generate pickup scheduling",
+        "visual": {
+          "x": 900,
+          "y": 860
+        },
+        "userModified": true
+      },
+      "configuration": {
+        "config$prompt": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "{{\"type\":\"in\",\"path\":\"047e7cca-b165-4a5e-9421-74241d26ce70\",\"title\":\"Generate Food Order\"}} {{\"type\":\"in\",\"path\":\"ask_user_pickup_time\",\"title\":\"Pickup Time\"}} {{\"type\":\"in\",\"path\":\"ask_user_event_name\",\"title\":\"Meeting Name\"}}\n\nRandomly pick one of the email addresses from the {{\"type\":\"in\",\"path\":\"abeebeb8-2f7c-40b0-b7b9-0775e9537812\",\"title\":\"Pickup people\"}}list and assign them to be responsible for placing and picking up the order.  Cycle through the people so that the same person isn't picking up the order week after week \n\nDraft 2 emails for each order. One is for the day before which should be sent at 9 AM and tells the person assigned to the order all the information about what they need to get (price information, quantity of items, the URL to the restaurant, etc.) Then another is a reminder email that will be sent 4 hours before the meeting.\n\nThese emails should be displayed in the final HTML and in the  Google sheet that is generated.\n"
+            }
+          ]
+        },
+        "generation-mode": "agent"
+      }
+    },
+    {
+      "id": "c5253671-6868-4710-a8dd-9f21cd1927d7",
+      "type": "embed://a2/a2.bgl.json#module:render-outputs",
+      "metadata": {
+        "title": "Generate HTML",
+        "visual": {
+          "x": 1380,
+          "y": 600
+        },
+        "userModified": true,
+        "expected_output": [
+          {
+            "list": false,
+            "type": "text",
+            "description": "Generated HTML for meeting and ordering information."
+          },
+          {
+            "list": true,
+            "type": "text",
+            "description": "List of email drafts for user review."
+          }
+        ]
+      },
+      "configuration": {
+        "text": {
+          "role": "user",
+          "parts": [
+            {
+              "text": "{{\"type\":\"in\",\"path\":\"acb0ddb0-473e-42b1-88db-3bca307b6b3e\",\"title\":\"Generate pickup scheduling\"}}\n\n {{\"type\":\"in\",\"path\":\"047e7cca-b165-4a5e-9421-74241d26ce70\",\"title\":\"Generate Food Order\"}}\n\nGoogle sheet with order information:\n  {{\"type\":\"in\",\"path\":\"d4ec0e95-c8d2-4aaf-9592-59de7c38307b\",\"title\":\"Output 1\"}}"
+            }
+          ]
+        },
+        "p-render-mode": "Manual layout",
+        "b-render-model-name": "gemini-flash",
+        "b-system-instruction": {
+          "role": "user",
+          "parts": [
+            {
+              "text": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "d4ec0e95-c8d2-4aaf-9592-59de7c38307b",
+      "type": "embed://a2/a2.bgl.json#module:render-outputs",
+      "metadata": {
+        "title": "Output 1",
+        "visual": {
+          "x": 1380,
+          "y": 860
+        },
+        "userModified": false
+      },
+      "configuration": {
+        "text": {
+          "role": "user",
+          "parts": [
+            {
+              "text": " {{\"type\":\"in\",\"path\":\"acb0ddb0-473e-42b1-88db-3bca307b6b3e\",\"title\":\"Generate pickup scheduling\"}} {{\"type\":\"in\",\"path\":\"047e7cca-b165-4a5e-9421-74241d26ce70\",\"title\":\"Generate Food Order\"}}\n\n"
+            }
+          ]
+        },
+        "p-render-mode": "google-sheets",
+        "b-d-sheets-edit-mode": "same-tab",
+        "b-doc-title": "",
+        "b-d-sheets-write-mode": "prepend"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "ask_user_talk_date",
+      "to": "047e7cca-b165-4a5e-9421-74241d26ce70",
+      "out": "context",
+      "in": "p-z-ask_user_talk_date"
+    },
+    {
+      "from": "ask_user_attendee_count",
+      "to": "047e7cca-b165-4a5e-9421-74241d26ce70",
+      "out": "context",
+      "in": "p-z-ask_user_attendee_count"
+    },
+    {
+      "from": "1eb15dfa-508d-46f3-95f3-6dd21427a13f",
+      "to": "047e7cca-b165-4a5e-9421-74241d26ce70",
+      "out": "context",
+      "in": "p-z-1eb15dfa-508d-46f3-95f3-6dd21427a13f"
+    },
+    {
+      "from": "83d98265-aebc-43be-809c-158c5d015d6c",
+      "to": "047e7cca-b165-4a5e-9421-74241d26ce70",
+      "out": "context",
+      "in": "p-z-83d98265-aebc-43be-809c-158c5d015d6c"
+    },
+    {
+      "from": "abeebeb8-2f7c-40b0-b7b9-0775e9537812",
+      "to": "acb0ddb0-473e-42b1-88db-3bca307b6b3e",
+      "out": "context",
+      "in": "p-z-abeebeb8-2f7c-40b0-b7b9-0775e9537812"
+    },
+    {
+      "from": "047e7cca-b165-4a5e-9421-74241d26ce70",
+      "to": "acb0ddb0-473e-42b1-88db-3bca307b6b3e",
+      "out": "context",
+      "in": "p-z-047e7cca-b165-4a5e-9421-74241d26ce70"
+    },
+    {
+      "from": "acb0ddb0-473e-42b1-88db-3bca307b6b3e",
+      "to": "c5253671-6868-4710-a8dd-9f21cd1927d7",
+      "out": "context",
+      "in": "p-z-acb0ddb0-473e-42b1-88db-3bca307b6b3e"
+    },
+    {
+      "from": "ask_user_pickup_time",
+      "to": "acb0ddb0-473e-42b1-88db-3bca307b6b3e",
+      "out": "context",
+      "in": "p-z-ask_user_pickup_time"
+    },
+    {
+      "from": "ask_user_event_name",
+      "to": "acb0ddb0-473e-42b1-88db-3bca307b6b3e",
+      "out": "context",
+      "in": "p-z-ask_user_event_name"
+    },
+    {
+      "from": "acb0ddb0-473e-42b1-88db-3bca307b6b3e",
+      "to": "d4ec0e95-c8d2-4aaf-9592-59de7c38307b",
+      "out": "context",
+      "in": "p-z-acb0ddb0-473e-42b1-88db-3bca307b6b3e"
+    },
+    {
+      "from": "047e7cca-b165-4a5e-9421-74241d26ce70",
+      "to": "c5253671-6868-4710-a8dd-9f21cd1927d7",
+      "out": "context",
+      "in": "p-z-047e7cca-b165-4a5e-9421-74241d26ce70"
+    },
+    {
+      "from": "047e7cca-b165-4a5e-9421-74241d26ce70",
+      "to": "d4ec0e95-c8d2-4aaf-9592-59de7c38307b",
+      "out": "context",
+      "in": "p-z-047e7cca-b165-4a5e-9421-74241d26ce70"
+    },
+    {
+      "from": "d4ec0e95-c8d2-4aaf-9592-59de7c38307b",
+      "to": "c5253671-6868-4710-a8dd-9f21cd1927d7",
+      "out": "context",
+      "in": "p-z-d4ec0e95-c8d2-4aaf-9592-59de7c38307b"
+    }
+  ],
+  "url": "drive:/1fQImePZH5rBb0b1bzy-oi6-VdTL2bePz"
+}
