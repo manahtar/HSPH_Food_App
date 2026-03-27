@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HSPH Meeting Food Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 800px; }
+    label { display: block; margin-top: 1rem; font-weight: 600; }
+    input, textarea, select, button {
+      width: 100%; padding: 0.5rem; margin-top: 0.25rem; box-sizing: border-box;
+    }
+    button { margin-top: 1.5rem; cursor: pointer; }
+    #output { margin-top: 2rem; white-space: pre-wrap; border-top: 1px solid #ccc; padding-top: 1.5rem; }
+  </style>
+</head>
+<body>
+  <h1>HSPH Meeting Food Generator</h1>
+  <p>Effortlessly schedule departmental talk lunch pickups, ensuring timely meals for all.</p>
+
+  <form id="foodForm">
+    <label>
+      Meeting Name
+      <input type="text" id="meetingName" required placeholder="e.g., Biostatistics Seminar Series">
+    </label>
+
+    <label>
+      Talk Date(s)
+      <textarea id="talkDates" rows="2" placeholder="e.g., 2026-04-10; 2026-04-17; 2026-04-24"></textarea>
+    </label>
+
+    <label>
+      Pickup Time
+      <input type="text" id="pickupTime" placeholder="e.g., 11:45 AM">
+    </label>
+
+    <label>
+      Estimated number of attendees
+      <input type="number" id="attendeeCount" min="1" required>
+    </label>
+
+    <label>
+      Meal type
+      <input type="text" id="mealType" placeholder="e.g., lunch, breakfast without coffee">
+    </label>
+
+    <label>
+      Per person budget (USD)
+      <input type="number" id="perPersonBudget" min="1" step="0.01" placeholder="Default: 10 for lunch/dinner, 5 for breakfast">
+    </label>
+
+    <label>
+      Pickup people (email addresses, separated by commas)
+      <textarea id="pickupPeople" rows="2" placeholder="person1@example.edu, person2@example.edu"></textarea>
+    </label>
+
+    <button type="submit">Generate Plan</button>
+  </form>
+
+  <div id="output"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
