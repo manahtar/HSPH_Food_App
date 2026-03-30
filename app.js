@@ -2,13 +2,6 @@
 
 const BACKEND_URL = 'https://manahtar-hsph-food-backend.hf.space'; // your deployed backend URL
 
-// later:
-const res = await fetch(`${BACKEND_URL}/api/generate`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ prompt })
-});
-
 document.getElementById('foodForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
