@@ -1,6 +1,6 @@
 // app.js
 
-const BACKEND_URL = 'https://manahtar-hsph-food-backend.hf.space/api/generate'; // your deployed backend URL
+const BACKEND_URL = 'https://manahtar-hsph-food-backend.hf.space'; // your deployed backend URL
 
 // later:
 const res = await fetch(`${BACKEND_URL}/api/generate`, {
