@@ -145,4 +145,7 @@ SECTION 3: EMAIL DRAFTS
 - For each date and assigned person: the two fully-written email drafts (day-before and 4-hours-before),
   clearly labeled.
 `;
+
+  const markdown = data.result || 'No result returned from the model.';
+outputEl.innerHTML = marked.parse(markdown);
 }
