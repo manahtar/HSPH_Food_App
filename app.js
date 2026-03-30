@@ -35,10 +35,10 @@ document.getElementById('foodForm').addEventListener('submit', async (e) => {
   });
 
   try {
-    const res = await fetch('/api/generate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt })
+   const res = await fetch(`${BACKEND_URL}/api/generate`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ prompt })
     });
 
     if (!res.ok) {
