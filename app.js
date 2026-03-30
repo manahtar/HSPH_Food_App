@@ -23,7 +23,6 @@ document.getElementById('foodForm').addEventListener('submit', async (e) => {
   const outputEl = document.getElementById('output');
   outputEl.textContent = 'Generating plan… this may take a moment.';
 
-  // Build the prompt equivalent to your Opal config
   const prompt = buildPrompt({
     meetingName,
     talkDates,
@@ -35,10 +34,10 @@ document.getElementById('foodForm').addEventListener('submit', async (e) => {
   });
 
   try {
-   const res = await fetch(`${BACKEND_URL}/api/generate`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ prompt })
+    const res = await fetch(`${BACKEND_URL}/api/generate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt })
     });
 
     if (!res.ok) {
@@ -46,18 +45,16 @@ document.getElementById('foodForm').addEventListener('submit', async (e) => {
     }
 
     const data = await res.json();
-    // Expecting { result: "..." } from the backend
-    outputEl.textContent = data.result || 'No result returned from the model.';
+
+    const markdown = data.result || 'No result returned from the model.';
+    // Render Markdown → HTML
+    outputEl.innerHTML = marked.parse(markdown);
   } catch (err) {
     console.error(err);
     outputEl.textContent = 'Error generating plan. Check console for details.';
   }
 });
 
-/**
- * Build a single, detailed prompt string from the form inputs.
- * This combines your "Generate Food Order" and "Generate pickup scheduling" behavior.
- */
 function buildPrompt({
   meetingName,
   talkDates,
@@ -129,23 +126,14 @@ Each email should include:
 
 3) OUTPUT FORMAT
 
-Return your answer as clear, human-readable text that could be:
-- Displayed as HTML on a web page, and
-- Easily copied into a Google Sheet if needed.
+Return your answer formatted in Markdown so it:
+- Looks good as HTML on a web page (headings, tables, bold labels),
+- Can be copied into a Google Doc/Sheet if needed.
 
 Organize it as:
 
-SECTION 1: SUMMARY TABLE (plain text table or bullet list) of:
-- For each date: restaurant, cuisine, total cost, per-person cost, assigned pickup person email.
-
-SECTION 2: DETAILED ORDERS
-- For each date: restaurant info, menu items with quantities and prices, totals, and URL.
-
-SECTION 3: EMAIL DRAFTS
-- For each date and assigned person: the two fully-written email drafts (day-before and 4-hours-before),
-  clearly labeled.
+SECTION 1: SUMMARY TABLE (Markdown table).
+SECTION 2: DETAILED ORDERS.
+SECTION 3: EMAIL DRAFTS.
 `;
-
-  const markdown = data.result || 'No result returned from the model.';
-outputEl.innerHTML = marked.parse(markdown);
 }
